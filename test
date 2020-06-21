@@ -4,7 +4,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          accessModes: "ReadWriteOnce"
+          accessModes: ["ReadWriteOnce"]
           storageClassName: "rook-nfs-export1"
           resources:
             requests:
@@ -13,11 +13,11 @@ prometheus:
 # Define persistent storage for Grafana (PVC)
 grafana:
   # Set password for Grafana admin user
-  adminPassword: your_admin_password
+  adminPassword: admind
   persistence:
     enabled: true
     storageClassName: "rook-nfs-export1"
-    accessModes: "ReadWriteOnce"
+    accessModes: ["ReadWriteOnce"]
     size: 5Gi
 
 # Define persistent storage for Alertmanager (PVC)
@@ -26,7 +26,7 @@ alertmanager:
     storage:
       volumeClaimTemplate:
         spec:
-          accessModes: "ReadWriteOnce"
+          accessModes: ["ReadWriteOnce"]
           storageClassName: "rook-nfs-export1"
           resources:
             requests:
